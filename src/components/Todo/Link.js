@@ -1,9 +1,9 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import PropTypes from "prop-types";
+import React from "react";
 
 const Link = ({active, children, onClick}) => {
   if (active) {
-    return <span>{children}</span>
+    return <span>{children}</span>;
   }
 
   return (
@@ -11,18 +11,18 @@ const Link = ({active, children, onClick}) => {
       href=""
       onClick={e => {
         e.preventDefault();
-        onClick()
+        onClick();
       }}
     >
       {children}
     </a>
-  )
+  );
 };
 
 Link.propTypes = {
   active: PropTypes.bool.isRequired,
   children: PropTypes.node.isRequired,
-  onClick: PropTypes.func.isRequired
+  onClick: PropTypes.func.isRequired,
 };
 
-export default Link
+export default Link;

@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
+import PropTypes from "prop-types";
+import React, { Component } from "react";
 
 export default class Posts extends Component {
   render() {
@@ -7,10 +7,10 @@ export default class Posts extends Component {
       <ul>
         {this.props.posts.map((post, i) => <li key={i}>{post.title}</li>)}
       </ul>
-    )
+    );
   }
 }
 
 Posts.propTypes = {
-  posts: PropTypes.array.isRequired
+  posts: PropTypes.array.isRequired,
 };

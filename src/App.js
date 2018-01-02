@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
-import AddTodo from "./containers/AddTodo";
-import VisibleTodoList from "./containers/VisibleTodoList";
-import Footer from "./components/Footer";
-import AsyncApp from "./containers/AsyncApp";
+import React, { Component } from "react";
+import "./App.css";
+import Footer from "./components/Todo/Footer";
+import AsyncApp from "./containers/Reddit/AsyncApp";
+import AddTodo from "./containers/Todo/AddTodo";
+import VisibleTodoList from "./containers/Todo/VisibleTodoList";
+import logo from "./logo.svg";
 
 class App extends Component {
   render() {

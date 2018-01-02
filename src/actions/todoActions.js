@@ -1,4 +1,4 @@
-import { createActions } from 'redux-actions';
+import { createActions } from "redux-actions";
 
 export const {addTodo, toggleTodo, setVisibilityFilter} = createActions({
   ADD_TODO: text => ({text}),
@@ -7,7 +7,7 @@ export const {addTodo, toggleTodo, setVisibilityFilter} = createActions({
 });
 
 export const VisibilityFilters = {
-  SHOW_ALL: 'SHOW_ALL',
-  SHOW_COMPLETED: 'SHOW_COMPLETED',
-  SHOW_ACTIVE: 'SHOW_ACTIVE',
+  SHOW_ALL: "SHOW_ALL",
+  SHOW_COMPLETED: "SHOW_COMPLETED",
+  SHOW_ACTIVE: "SHOW_ACTIVE",
 };

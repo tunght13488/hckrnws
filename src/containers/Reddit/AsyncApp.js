@@ -1,32 +1,32 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
-import { connect } from 'react-redux'
-import { fetchPostsIfNeeded, invalidateSubreddit, selectSubreddit } from '../actions/redditActions'
-import Picker from '../components/Picker'
-import Posts from '../components/Posts'
+import PropTypes from "prop-types";
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { fetchPostsIfNeeded, invalidateSubreddit, selectSubreddit } from "../../actions/redditActions";
+import Picker from "../../components/Reddit/Picker";
+import Posts from "../../components/Reddit/Posts";
 
 class AsyncApp extends Component {
   constructor(props) {
     super(props);
     this.handleChange = this.handleChange.bind(this);
-    this.handleRefreshClick = this.handleRefreshClick.bind(this)
+    this.handleRefreshClick = this.handleRefreshClick.bind(this);
   }
 
   componentDidMount() {
     const {dispatch, selectedSubreddit} = this.props;
-    dispatch(fetchPostsIfNeeded(selectedSubreddit))
+    dispatch(fetchPostsIfNeeded(selectedSubreddit));
   }
 
   componentDidUpdate(prevProps) {
     if (this.props.selectedSubreddit !== prevProps.selectedSubreddit) {
       const {dispatch, selectedSubreddit} = this.props;
-      dispatch(fetchPostsIfNeeded(selectedSubreddit))
+      dispatch(fetchPostsIfNeeded(selectedSubreddit));
     }
   }
 
   handleChange(nextSubreddit) {
     this.props.dispatch(selectSubreddit(nextSubreddit));
-    this.props.dispatch(fetchPostsIfNeeded(nextSubreddit))
+    this.props.dispatch(fetchPostsIfNeeded(nextSubreddit));
   }
 
   handleRefreshClick(e) {
@@ -34,7 +34,7 @@ class AsyncApp extends Component {
 
     const {dispatch, selectedSubreddit} = this.props;
     dispatch(invalidateSubreddit(selectedSubreddit));
-    dispatch(fetchPostsIfNeeded(selectedSubreddit))
+    dispatch(fetchPostsIfNeeded(selectedSubreddit));
   }
 
   render() {
@@ -44,18 +44,18 @@ class AsyncApp extends Component {
         <Picker
           value={selectedSubreddit}
           onChange={this.handleChange}
-          options={['reactjs', 'frontend']}
+          options={["reactjs", "frontend"]}
         />
         <p>
           {lastUpdated &&
           <span>
               Last updated at {new Date(lastUpdated).toLocaleTimeString()}.
-            {' '}
+            {" "}
             </span>}
           {!isFetching &&
-          <a href="#" onClick={this.handleRefreshClick}>
+          <button onClick={this.handleRefreshClick}>
             Refresh
-          </a>}
+          </button>}
         </p>
         {isFetching && posts.length === 0 && <h2>Loading...</h2>}
         {!isFetching && posts.length === 0 && <h2>Empty.</h2>}
@@ -64,7 +64,7 @@ class AsyncApp extends Component {
           <Posts posts={posts}/>
         </div>}
       </div>
-    )
+    );
   }
 }
 
@@ -73,7 +73,7 @@ AsyncApp.propTypes = {
   posts: PropTypes.array.isRequired,
   isFetching: PropTypes.bool.isRequired,
   lastUpdated: PropTypes.number,
-  dispatch: PropTypes.func.isRequired
+  dispatch: PropTypes.func.isRequired,
 };
 
 function mapStateToProps(state) {
@@ -81,18 +81,18 @@ function mapStateToProps(state) {
   const {
     isFetching,
     lastUpdated,
-    items: posts
+    items: posts,
   } = postsBySubreddit[selectedSubreddit] || {
     isFetching: true,
-    items: []
+    items: [],
   };
 
   return {
     selectedSubreddit,
     posts,
     isFetching,
-    lastUpdated
-  }
+    lastUpdated,
+  };
 }
 
-export default connect(mapStateToProps)(AsyncApp)
+export default connect(mapStateToProps)(AsyncApp);

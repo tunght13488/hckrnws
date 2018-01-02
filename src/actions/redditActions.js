@@ -7,7 +7,7 @@ export const {selectSubreddit, invalidateSubreddit, requestPosts, receivePosts} 
   RECEIVE_POSTS: (subreddit, json) => ({
     subreddit,
     posts: json.data.children.map(child => child.data),
-    receivedAt: Date.now()
+    receivedAt: Date.now(),
   }),
 });
 
@@ -17,7 +17,7 @@ function fetchPosts(subreddit) {
     return fetch(`https://www.reddit.com/r/${subreddit}.json`)
       .then(response => response.json())
       .then(json => dispatch(receivePosts(subreddit, json)));
-  }
+  };
 }
 
 function shouldFetchPosts(state, subreddit) {
@@ -37,5 +37,5 @@ export function fetchPostsIfNeeded(subreddit) {
       return dispatch(fetchPosts(subreddit));
     }
     return Promise.resolve();
-  }
+  };
 }

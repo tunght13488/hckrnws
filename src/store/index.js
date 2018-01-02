@@ -1,13 +1,13 @@
 import { applyMiddleware, compose, createStore } from "redux";
-import thunkMiddleware from 'redux-thunk';
-import { createLogger } from 'redux-logger';
-import rootReducer from '../reducers';
+import { createLogger } from "redux-logger";
+import thunkMiddleware from "redux-thunk";
+import rootReducer from "../reducers";
 
 const loggerMiddleware = createLogger();
 
 const middleware = [
   thunkMiddleware,
-  loggerMiddleware
+  loggerMiddleware,
 ];
 
 /* eslint-disable no-underscore-dangle */
@@ -18,8 +18,8 @@ export default function configureStore() {
   const store = createStore(
     rootReducer,
     composeEnhancers(
-      applyMiddleware(...middleware)
-    )
+      applyMiddleware(...middleware),
+    ),
   );
   store.subscribe(() => {
     console.log(store.getState());

@@ -1,6 +1,6 @@
-import { handleActions } from 'redux-actions';
-import { addTodo, setVisibilityFilter, toggleTodo, VisibilityFilters } from "../actions/todoActions";
 import { combineReducers } from "redux";
+import { handleActions } from "redux-actions";
+import { addTodo, setVisibilityFilter, toggleTodo, VisibilityFilters } from "../actions/todoActions";
 
 const todoReducer = handleActions({
   [addTodo](state, {payload: {text}}) {
@@ -10,7 +10,7 @@ const todoReducer = handleActions({
     return state.map((todo, i) => {
       if (i === index) {
         return Object.assign({}, todo, {
-          completed: !todo.completed
+          completed: !todo.completed,
         });
       }
       return todo;

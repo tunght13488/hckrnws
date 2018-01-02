@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
+import PropTypes from "prop-types";
+import React, { Component } from "react";
 
 export default class Picker extends Component {
   render() {
@@ -16,12 +16,12 @@ export default class Picker extends Component {
           ))}
         </select>
       </span>
-    )
+    );
   }
 }
 
 Picker.propTypes = {
   options: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
   value: PropTypes.string.isRequired,
-  onChange: PropTypes.func.isRequired
+  onChange: PropTypes.func.isRequired,
 };

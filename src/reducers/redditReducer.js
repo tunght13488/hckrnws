@@ -6,7 +6,7 @@ const selectedSubreddit = handleActions({
   [selectSubreddit](state, {payload: {subreddit}}) {
     return subreddit;
   },
-}, 'reactjs');
+}, "reactjs");
 
 const posts = handleActions({
   [invalidateSubreddit](state) {
@@ -16,7 +16,7 @@ const posts = handleActions({
     return {
       ...state,
       isFetching: true,
-      didInvalidate: false
+      didInvalidate: false,
     };
   },
   [receivePosts](state, {payload: {posts, receivedAt}}) {
@@ -25,19 +25,19 @@ const posts = handleActions({
       isFetching: false,
       didInvalidate: false,
       items: posts,
-      lastUpdated: receivedAt
+      lastUpdated: receivedAt,
     };
   },
 }, {
   isFetching: false,
   didInvalidate: false,
-  items: []
+  items: [],
 });
 
 const postsBySubreddit = handleActions({
   [combineActions(invalidateSubreddit, requestPosts, receivePosts)](state, action) {
     return Object.assign({}, state, {
-      [action.payload.subreddit]: posts(state[action.payload.subreddit], action)
+      [action.payload.subreddit]: posts(state[action.payload.subreddit], action),
     });
   },
 }, {});
