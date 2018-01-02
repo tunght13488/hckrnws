@@ -1,9 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
-import Footer from "./components/Todo/Footer";
-import AsyncApp from "./containers/Reddit/AsyncApp";
-import AddTodo from "./containers/Todo/AddTodo";
-import VisibleTodoList from "./containers/Todo/VisibleTodoList";
+import CounterApp from "./containers/Counter/CounterApp";
 import logo from "./logo.svg";
 
 class App extends Component {
@@ -17,13 +14,8 @@ class App extends Component {
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
-        <div className="App-reddit">
-          <AsyncApp/>
-        </div>
-        <div className="App-todo">
-          <AddTodo/>
-          <VisibleTodoList/>
-          <Footer/>
+        <div className="App-counter">
+          <CounterApp/>
         </div>
       </div>
     );

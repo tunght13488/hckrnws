@@ -1,12 +1,10 @@
 import { combineActions, handleActions } from "redux-actions";
 import { decrement, increment } from "../actions/counterActions";
 
-const defaultState = {counter: 0};
-
-const reducer = handleActions({
+const counterReducer = handleActions({
   [combineActions(increment, decrement)](state, {payload: {amount}}) {
-    return {...state, counter: state.counter + amount};
+    return state + amount;
   },
-}, defaultState);
+}, 0);
 
-export default reducer;
+export default counterReducer;
