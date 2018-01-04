@@ -26,8 +26,6 @@ const reducer = combineReducers({
   routing: routerReducer,
 });
 
-debugger;
-
 const store = createStore(
   reducer,
   composeEnhancers(
