@@ -3,13 +3,13 @@ import Item from './Item';
 
 const ItemList = ({items}) => {
   return (
-    <div className="ItemList columns">
-      <ol className="column">
+    <section className="ItemList">
+      <div className="container is-fluid">
         {items.map(item => (
           <Item key={item.objectID} item={item}/>
         ))}
-      </ol>
-    </div>
+      </div>
+    </section>
   );
 };
 
