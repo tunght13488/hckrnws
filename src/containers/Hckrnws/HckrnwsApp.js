@@ -14,7 +14,7 @@ class HckrnwsApp extends Component {
   render() {
     const {items, meta} = this.props;
     return (
-      <div>
+      <div className="HckrnwsApp">
         <SearchBar/>
         <Header data={meta}/>
         <ItemList items={items}/>

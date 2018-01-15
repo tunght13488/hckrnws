@@ -5,9 +5,7 @@ import HckrnwsApp from './containers/Hckrnws/HckrnwsApp';
 class App extends Component {
   render() {
     return (
-      <div>
-        <HckrnwsApp/>
-      </div>
+      <HckrnwsApp/>
     );
   }
 }

@@ -3,8 +3,8 @@ import Item from './Item';
 
 const ItemList = ({items}) => {
   return (
-    <div>
-      <ol>
+    <div className="ItemList columns">
+      <ol className="column">
         {items.map(item => (
           <Item key={item.objectID} item={item}/>
         ))}
